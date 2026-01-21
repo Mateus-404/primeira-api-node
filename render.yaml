@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: streaming-platform-api
+    env: node
+    plan: free
+    buildCommand: npm install && node setup-db.js
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://neondb_owner:npg_ShZAsvYHCj92@ep-calm-dust-ahkvhyf8-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+      - key: NODE_ENV
+        value: production
